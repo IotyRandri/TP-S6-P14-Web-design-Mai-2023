@@ -61,7 +61,7 @@ class AdminController extends Controller
             $imagename = uniqid(). '.' .$image->getClientOriginalExtension();
 
             // Copy Image to Public Folder
-            $image->move(public_path('images_IA'),$imagename);
+            $image->move('images_IA',$imagename);
 
         }
 
