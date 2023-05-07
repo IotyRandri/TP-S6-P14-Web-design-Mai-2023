@@ -3,6 +3,10 @@
 
 Numero ETU: ETU001641
 
+Login Back Office:
+    -email : admin
+    -motdepasse : admin
+
 Lien:
     -Site:
     -Front Office:
