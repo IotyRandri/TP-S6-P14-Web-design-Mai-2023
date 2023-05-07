@@ -4,10 +4,12 @@
     </IfModule>
 
     Options+FollowSymLinks
+
+    
     RewriteEngine On
     
 
-    RewriteRule ^front/domaineapplication/?.*-([0-9]+) /front/domaineapplication/id=$1 [L]
+    # RewriteRule ^front/domaineapplication/?.*-([0-9]+) /front/domaineapplication/id=$1 [L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
