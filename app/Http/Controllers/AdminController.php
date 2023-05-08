@@ -44,7 +44,6 @@ class AdminController extends Controller
         if (isset($request->titreresume)){
             $titreresume = $request->titreresume;
         }
-
         if (isset($request->descriptionresume)){
             $descriptionresume = $request->descriptionresume;
         }
@@ -57,44 +56,42 @@ class AdminController extends Controller
             $description = $request->description;
         }
 
-        // Get Image and Copy to public folder
         if (isset($request->image)){
 
             // Get Image from request
             $image = $request->file('image');
 
-            // Generate Unique Name Image
-            $imagename = uniqid(). '.' .$image->getClientOriginalExtension();
 
-            // Copy Image to Public Folder
-            $image->move(public_path('images_IA'),$imagename);
-
-            // Add To Cache
-            // $image = Image::make(public_path('images_IA/'.$imagename))->resize(300,200);
-
-            // Cache::remember($imagename, 86400, function () use ($image) {
-            //     return $image->response('jpg');
-            // })->header('Content-Type', 'image/jpeg');
-
-
-
+            // Set to base 64
+            $imagename = base64_encode(file_get_contents($image));
+            $nomimage = $image->getClientOriginalName();
+            $extension = $image->getClientOriginalExtension();
         }
-
-        // echo $titre,$description,$imagename;
 
 
         // Create new Domaine_Application Object
-        $domaine_application = new Domaine_Application();
-        $domaine_application->titre = $titre;
-        $domaine_application->description = $description;
+        $domaineapplication = new Domaine_Application();
+        // Update Values
+        if (isset($titre)){
+            $domaineapplication->titre = $titre;
+        }
+        if (isset($description)){
+            $domaineapplication->description = $description;
+        }
         if (isset($imagename)){
-            $domaine_application->image = $imagename;
+            $domaineapplication->image = $imagename;
+        }
+        if (isset($nomimage)){
+            $domaineapplication->nomimage = $nomimage;
+        }
+        if (isset($extension)){
+            $domaineapplication->extension = $extension;
         }
 
         
 
         // Save to Database
-        $domaine_application->save();
+        $domaineapplication->save();
 
 
         // Create new Resume
@@ -154,12 +151,11 @@ class AdminController extends Controller
             // Get Image from request
             $image = $request->file('image');
 
-            // Generate Unique Name Image
-            $imagename = uniqid(). '.' .$image->getClientOriginalExtension();
 
-            // Copy Image to Public Folder
-            $image->move(public_path('images_IA'),$imagename);
-
+            // Set to base 64
+            $imagename = base64_encode(file_get_contents($image));
+            $nomimage = $image->getClientOriginalName();
+            $extension = $image->getClientOriginalExtension();
         }
 
 
@@ -172,6 +168,12 @@ class AdminController extends Controller
         }
         if (isset($imagename)){
             $domaineapplication->image = $imagename;
+        }
+        if (isset($nomimage)){
+            $domaineapplication->nomimage = $nomimage;
+        }
+        if (isset($extension)){
+            $domaineapplication->extension = $extension;
         }
 
         // Save to Database
