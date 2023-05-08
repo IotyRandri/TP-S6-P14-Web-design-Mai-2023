@@ -59,7 +59,7 @@
 
           <label>Image</label>
             <div class="row text-center">
-              <img src="{{asset('images_IA/'.$image)}}" alt="{{$titre}}"/>
+              <img src="data:image/{{$extension}};base64,{{$image}}" alt="{{$nomimage}}"/>
             </div>
           <br>
 

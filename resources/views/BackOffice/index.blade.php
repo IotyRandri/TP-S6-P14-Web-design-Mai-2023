@@ -61,7 +61,7 @@
             </div>
             @foreach($domainesapplication as $domaineapp)  
               <div class="col-lg-4 col-md-6 col-6 d-flex align-items-center justify-content-center">
-                <img src="{{asset('images_IA/'.$domaineapp->image)}}" class="img-fluid" alt="{{$domaineapp->titre}}">
+                <img src="data:image/{{$domaineapp->extension}};base64,{{$domaineapp->image}}" class="img-fluid" alt="{{$domaineapp->nomimage}}">
               </div>
             @endforeach
           </div>

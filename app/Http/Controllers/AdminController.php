@@ -231,6 +231,8 @@ class AdminController extends Controller
         $data['titre'] = $domaineapplication->titre;
         $data['description'] = $domaineapplication->description;
         $data['image'] = $domaineapplication->image;
+        $data['nomimage'] = $domaineapplication->nomimage;
+        $data['extension'] = $domaineapplication->extension;
         $data['resume'] = $resume;
 
 

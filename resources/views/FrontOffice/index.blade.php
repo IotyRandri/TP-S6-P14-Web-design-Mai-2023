@@ -45,7 +45,7 @@
                 </div> <!-- end of col -->
                 <div class="col-lg-5 col-xl-7">
                     <div class="image-container">
-                        <img class="img-fluid" src="{{asset('images_IA/'.$homepage->image)}}" alt="{{$homepage->image}}" style="width: 700px; height: 500px">
+                        <img class="img-fluid" src="data:image/{{$homepage->extension}};base64,{{$homepage->image}}" alt="{{$homepage->nomimage}}" style="width: 700px; height: 500px">
                     </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -67,7 +67,7 @@
                     @foreach ($resumes as $resume)
                         <!-- Card -->
                         <div class="card">
-                            <img class="img-fluid" src="{{asset('images_IA/'.$resume->domaineapplication->image)}}" width="350" height="233" alt="{{$resume->titre}}">
+                            <img class="img-fluid" src="data:image/{{$resume->domaineapplication->extension}};base64,{{$resume->domaineapplication->image}}" width="350" height="233" alt="{{$resume->titre}}">
                             <div class="card-body">
                                 <h5 class="card-title">{{$resume->titre}}</h5>
                                 <p class="card-text">{!!$resume->description!!} <a class="blue no-line" href="/front/domaineapplication/{!! strip_tags($resume->description).'-'.$resume->iddomaineapplication!!}">Voir en detail</a></p>

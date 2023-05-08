@@ -47,7 +47,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-12">
-                    <img class="img-fluid mt-5 mb-3" src="{{asset('images_IA/'.$domaineapplication->image)}}" alt="{{$domaineapplication->titre}}">
+                    <img class="img-fluid mt-5 mb-3" src="data:image/{{$domaineapplication->extension}};base64,{{$domaineapplication->image}}" alt="{{$domaineapplication->nomimage}}">
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
