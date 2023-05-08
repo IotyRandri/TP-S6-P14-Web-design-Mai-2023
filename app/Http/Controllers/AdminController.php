@@ -13,6 +13,11 @@ class AdminController extends Controller
     // Home Page
     public function home(){
 
+        // Resize images
+        $output = [];
+        exec('node resources/js/sharp.js',$output);
+
+
         // Get Images Domaine Application
         $domaineapplication = Domaine_Application::all();
 

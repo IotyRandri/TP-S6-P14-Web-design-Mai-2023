@@ -13,6 +13,10 @@ class Info_IA_Controller extends Controller
     public function index()
     {
 
+        // Resize images
+        $output = [];
+        exec('node resources/js/sharp.js',$output);
+
         // Get HomePage Text from Database
         $homepage = HomePage::all()->firstOrFail();
 
