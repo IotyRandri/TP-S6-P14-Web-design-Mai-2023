@@ -45,7 +45,7 @@
                 </div> <!-- end of col -->
                 <div class="col-lg-5 col-xl-7">
                     <div class="image-container">
-                        <img class="img-fluid" src="{{asset('images_IA/'.$homepage->image)}}" style="width: 700px; height: 500px">
+                        <img class="img-fluid" src="{{asset('images_IA/'.$homepage->image)}}" alt="{{$homepage->image}}" style="width: 700px; height: 500px">
                     </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
