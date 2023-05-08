@@ -51,7 +51,7 @@
           <br>
 
           <div class="text-center">
-            <img width="800" height="800" src="{{asset('images_IA/'.$homepage->image.'')}}" alt="{{$homepage->image}}"/>
+            <img width="800" height="800" src="data:image/{{$homepage->extension}};base64,{{$homepage->image}}" alt="{{$homepage->nomimage}}"/>
             <br>
           </div>
 
