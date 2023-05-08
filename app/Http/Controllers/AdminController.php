@@ -290,6 +290,7 @@ class AdminController extends Controller
 
             // Set to base 64
             $imagename = file_get_contents($image);
+            $nomimage = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
         }
         
@@ -301,6 +302,9 @@ class AdminController extends Controller
         }
         if (isset($extension)){
             $homepage->extension = $extension;
+        }
+        if (isset($nomimage)){
+            $homepage->nomimage = $nomimage;
         }
 
         // Save to Database
