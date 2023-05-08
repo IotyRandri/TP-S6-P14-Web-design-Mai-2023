@@ -53,6 +53,18 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
+        'public_cache' => [
+            'driver' => 'local',
+            'root' => public_path(),
+            'url' => env('APP_URL'),
+            'visibility' => 'public',
+            'cache' => [
+                'store' => 'file',
+                'expire' => 86400,
+                'prefix' => 'public_cache',
+            ],
+        ],
+
     ],
 
     /*

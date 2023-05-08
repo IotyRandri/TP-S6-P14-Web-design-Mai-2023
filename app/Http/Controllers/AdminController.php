@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Domaine_Application;
 use App\Models\HomePage;
 use App\Models\Resume_Domaine_Application;
+use Illuminate\Filesystem\Cache;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -67,6 +68,15 @@ class AdminController extends Controller
 
             // Copy Image to Public Folder
             $image->move(public_path('images_IA'),$imagename);
+
+            // Add To Cache
+            // $image = Image::make(public_path('images_IA/'.$imagename))->resize(300,200);
+
+            // Cache::remember($imagename, 86400, function () use ($image) {
+            //     return $image->response('jpg');
+            // })->header('Content-Type', 'image/jpeg');
+
+
 
         }
 

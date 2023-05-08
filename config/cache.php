@@ -92,6 +92,13 @@ return [
             'driver' => 'octane',
         ],
 
+        'public_cache' => [
+            'driver' => 'file',
+            'path' => storage_path('framework/cache/data/public_cache'),
+            'lock_path' => storage_path('framework/cache/lock/public_cache')
+
+        ]
+
     ],
 
     /*

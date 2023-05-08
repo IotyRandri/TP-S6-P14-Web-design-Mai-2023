@@ -1,15 +1,21 @@
+Options+FollowSymLinks
+ExpiresActive On
+ExpiresDefault "access plus 1 year"
+Header set Cache-Control "public"
+
+# RewriteRule ^front/domaineapplication/?.*-([0-9]+) /front/domaineapplication/id=$1 [L]
+
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
 
-    Options+FollowSymLinks
 
     
     RewriteEngine On
     
 
-    # RewriteRule ^front/domaineapplication/?.*-([0-9]+) /front/domaineapplication/id=$1 [L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
