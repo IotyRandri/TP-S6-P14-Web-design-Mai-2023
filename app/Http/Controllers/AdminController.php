@@ -287,11 +287,10 @@ class AdminController extends Controller
             // Get Image from request
             $image = $request->file('image');
 
-            // Generate Unique Name Image
-            $imagename = uniqid(). '.' .$image->getClientOriginalExtension();
 
-            // Copy Image to Public Folder
-            $image->move(public_path('images_IA'),$imagename);
+            // Set to base 64
+            $imagename = file_get_contents($image);
+            $extension = $image->getClientOriginalExtension();
         }
         
         // Update Home Page Data
@@ -299,6 +298,9 @@ class AdminController extends Controller
         $homepage->description = $description;
         if (isset($imagename)){
             $homepage->image = $imagename;
+        }
+        if (isset($extension)){
+            $homepage->extension = $extension;
         }
 
         // Save to Database
