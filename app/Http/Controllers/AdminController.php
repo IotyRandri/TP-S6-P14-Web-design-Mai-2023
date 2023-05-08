@@ -289,7 +289,7 @@ class AdminController extends Controller
 
 
             // Set to base 64
-            $imagename = file_get_contents($image);
+            $imagename = base64_encode(file_get_contents($image));
             $nomimage = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
         }
